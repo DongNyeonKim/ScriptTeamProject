@@ -1,0 +1,26 @@
+1.하이퍼링크 설정할 주소 드래그
+
+2.alt +f11
+
+3.sheet1 더블클릭
+
+4.
+Sub create_HLink()
+
+Dim C As Range
+
+For Each C In Selection
+
+If Not IsEmpty(C) Then
+
+C.Hyperlinks.Delete
+
+ActiveSheet.Hyperlinks.Add Anchor:=C, Address:=C.Value, TextToDisplay:=C.Value
+
+End If
+
+Next C
+
+End Sub
+
+5.코드삽입후 재생버튼
