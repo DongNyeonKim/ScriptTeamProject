@@ -6,6 +6,7 @@ import tkinter.messagebox
 window = Tk()
 window.title("Covid-19 ControlCenter")
 window.geometry("1100x600")
+window.configure(background='LightSteelBlue1')
 
 def titleImage():
     title_label = Label(window)
