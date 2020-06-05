@@ -3,15 +3,15 @@ from PIL import Image, ImageTk
 from tkinter import font
 import tkinter.messagebox
 import HomeUI
-import ShoppingUI
+import MaskUI
 
 def MoveHomeState():
     window.destroy()
     HomeUI.HomeState()
 
-def MoveShoppingState():
+def MoveMaskState():
     window.destroy()
-    ShoppingUI.ShoppingState()
+    MaskUI.MaskState()
 
 def titleImage():
     title_label = Label(window)
@@ -42,7 +42,7 @@ def maskButton():
     pil_image = Image.open('리소스/마스크아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     mask_Button.image = ImageTk.PhotoImage(pil_image)
-    mask_Button = Button(image = mask_Button.image)
+    mask_Button = Button(image = mask_Button.image,command=lambda: MoveMaskState())
     mask_Button.place(x=800,y=10)
     mask_text = Label(window)
     mask_text.place(x=800, y=110)
@@ -55,7 +55,7 @@ def shoppingButton():
     pil_image = Image.open('리소스/쇼핑아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     shopping_Button.image = ImageTk.PhotoImage(pil_image)
-    shopping_Button = Button(image = shopping_Button.image, command=lambda: MoveShoppingState())
+    shopping_Button = Button(image = shopping_Button.image)
     shopping_Button.place(x=900,y=10)
     shopping_text = Label(window)
     shopping_text.place(x=905, y=110)
@@ -77,7 +77,7 @@ def telegramButton():
     telegram_Button.bind("<Leave>", lambda _: telegram_text.configure(text=""))
 
 
-def MaskState():
+def ShoppingState():
     global window
     window = Tk()
     window.title("Covid-19 ControlCenter")

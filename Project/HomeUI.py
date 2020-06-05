@@ -3,10 +3,15 @@ from PIL import Image, ImageTk
 from tkinter import font
 import tkinter.messagebox
 import MaskUI
+import ShoppingUI
 
 def MoveMaskState():
     window.destroy()
     MaskUI.MaskState()
+
+def MoveShoppingState():
+    window.destroy()
+    ShoppingUI.ShoppingState()
 
 def titleImage():
     title_label = Label(window)
@@ -24,7 +29,7 @@ def homeButton():
     pil_image = Image.open('리소스/홈버튼.JPG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     home_Button.image = ImageTk.PhotoImage(pil_image)
-    home_Button = Button(image = home_Button.image, command=lambda: clickicon())
+    home_Button = Button(image = home_Button.image)
     home_Button.place(x=700,y=10)
     home_text = Label(window)
     home_text.place(x=735, y=110)
@@ -50,7 +55,7 @@ def shoppingButton():
     pil_image = Image.open('리소스/쇼핑아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     shopping_Button.image = ImageTk.PhotoImage(pil_image)
-    shopping_Button = Button(image = shopping_Button.image, command=lambda: clickicon())
+    shopping_Button = Button(image = shopping_Button.image, command=lambda: MoveShoppingState())
     shopping_Button.place(x=900,y=10)
     shopping_text = Label(window)
     shopping_text.place(x=905, y=110)
