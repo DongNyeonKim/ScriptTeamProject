@@ -2,15 +2,11 @@ from tkinter import *
 from PIL import Image, ImageTk
 from tkinter import font
 import tkinter.messagebox
+import MaskUI
 
-def window2():
+def MoveMaskState():
     window.destroy()
-    window1 = Tk()
-    window1.title("Covid-19 ControlCenter")
-    window1.geometry("1100x600")
-    window1.configure(background='LightSteelBlue2')
-    window1.resizable(0,0)       #창 크기 고정
-    window1.mainloop()
+    MaskUI.MaskState()
 
 def titleImage():
     title_label = Label(window)
@@ -41,7 +37,7 @@ def maskButton():
     pil_image = Image.open('리소스/마스크아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     mask_Button.image = ImageTk.PhotoImage(pil_image)
-    mask_Button = Button(image = mask_Button.image, command=lambda: window2())
+    mask_Button = Button(image = mask_Button.image, command=lambda: MoveMaskState())
     mask_Button.place(x=800,y=10)
     mask_text = Label(window)
     mask_text.place(x=800, y=110)
@@ -110,9 +106,10 @@ def HomeState():
     global window
     window = Tk()
     window.title("Covid-19 ControlCenter")
-    window.geometry("1100x600")
+    window.geometry("1100x600+100+100")
     window.configure(background='LightSteelBlue1')
     window.resizable(0, 0)  # 창 크기 고정
+
     homeButton()
     maskButton()
     shoppingButton()
@@ -125,8 +122,6 @@ def HomeState():
     window.mainloop()
 
 
-
-HomeState()
 
 
 
