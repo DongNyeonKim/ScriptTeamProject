@@ -4,6 +4,7 @@ from tkinter import font
 import tkinter.messagebox
 import MaskUI
 import ShoppingUI
+import SearchFunction
 
 def MoveMaskState():
     window.destroy()
@@ -82,26 +83,26 @@ def search():
 
 
 def searchcoronanewsButton():
-    coronanews_Button = Button(window, command = search)
+    coronanews_Button = Button(window, command=lambda: SearchFunction.getCoronanews())
     coronanews_Button.place(x=60,y=500)
     coronanews_Button.configure(text= "  코로나 관련 \n 뉴스기사 검색", font = ('서울서체',20,'bold'),
                                 height = 2, width=12,
                                 background='SteelBlue1')
 
 def searchScreeningClinicButton():
-    coronanews_Button = Button(window)
+    coronanews_Button = Button(window, command=lambda: SearchFunction.getScreeningClinic())
     coronanews_Button.place(x=320,y=500)
     coronanews_Button.configure(text= "선별진료소 검색", font = ('서울서체',20,'bold'),
                                 height = 2, width=12,
                                 background='SteelBlue1')
 def searchScreeningCarClinicButton():
-    coronanews_Button = Button(window)
+    coronanews_Button = Button(window, command=lambda: SearchFunction.getScreeningCarClinic())
     coronanews_Button.place(x=570,y=500)
     coronanews_Button.configure(text= "  승차검진 \n진료소 검색", font = ('서울서체',20,'bold'),
                                 height = 2, width=12,
                                 background='SteelBlue1')
 def searchSafetyHospitalButton():
-    coronanews_Button = Button(window)
+    coronanews_Button = Button(window, command=lambda: SearchFunction.getSafetyHospital())
     coronanews_Button.place(x=820,y=500)
     coronanews_Button.configure(text= "안심병원 검색", font = ('서울서체',20,'bold'),
                                 height = 2, width=12,
