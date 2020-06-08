@@ -259,6 +259,10 @@ def CoronaStatus():
     date_label.configure(text=CS.data[1]['totalExam'], font=('Arial', 20, 'bold'),
                                 height=1, width=10,
                                 background='white', relief = 'groove')
+    text_label = Label(window)
+    text_label.place(x=150, y=475)
+    text_label.configure(text="※금일 데이터가 업데이트 안되었을 경우 전일 데이터를 불러옵니다.",
+                         background='LightSteelBlue1', font=('Arial', 10))
 
 def HomeState():
     global window

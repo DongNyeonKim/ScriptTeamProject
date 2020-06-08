@@ -7,7 +7,7 @@ import datetime
 
 today = datetime.datetime.now()
 todayDate = today.strftime("20%y%m%d")
-b7Date = eval(todayDate)-6
+b7Date = eval(todayDate)-7
 
 #open_url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=' + open_api_key + params
 data = []
