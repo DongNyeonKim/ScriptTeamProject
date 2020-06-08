@@ -2,9 +2,11 @@ from tkinter import *
 from PIL import Image, ImageTk
 from tkinter import font
 import tkinter.messagebox
+import tkinter.ttk
 import MaskUI
 import ShoppingUI
 import SearchFunction
+import CoronaStateXMLParsing as CS
 
 def MoveMaskState():
     window.destroy()
@@ -108,6 +110,156 @@ def searchSafetyHospitalButton():
                                 height = 2, width=12,
                                 background='SteelBlue1')
 
+def CoronaStatus():
+    date_label = Label(window)
+    date_label.place(x=20, y=150)
+    date_label.configure(text="날짜", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=186)
+    date_label.configure(text="확진자", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=222)
+    date_label.configure(text="사망자", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=258)
+    date_label.configure(text="치료중", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=294)
+    date_label.configure(text="검사진행", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=330)
+    date_label.configure(text="완치자", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=366)
+    date_label.configure(text="음성결과", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=402)
+    date_label.configure(text="누적검사완료", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=438)
+    date_label.configure(text="누적검사", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+
+    date_label = Label(window)
+    date_label.place(x=195, y=114)
+    date_label.configure(text="금일", font=('Arial', 20, 'bold'),
+                         height=1, width=10,
+                         background='gray', relief='groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=114)
+    date_label.configure(text="전일", font=('Arial', 20, 'bold'),
+                         height=1, width=10,
+                         background='gray', relief='groove')
+
+    date_label = Label(window, width= 60)
+    date_label.place(x=195, y=150)
+    date_label.configure(text=CS.data[0]['date'], font=('Arial', 20,'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=186)
+    date_label.configure(text=CS.data[0]['getCorona'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=222)
+    date_label.configure(text=CS.data[0]['death'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=258)
+    date_label.configure(text=CS.data[0]['care'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=294)
+    date_label.configure(text=CS.data[0]['exam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=330)
+    date_label.configure(text=CS.data[0]['clear'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=366)
+    date_label.configure(text=CS.data[0]['resutlNeg'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=402)
+    date_label.configure(text=CS.data[0]['doneExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=438)
+    date_label.configure(text=CS.data[0]['totalExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+
+    date_label = Label(window, width= 60)
+    date_label.place(x=370, y=150)
+    date_label.configure(text=CS.data[1]['date'], font=('Arial', 20,'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=186)
+    date_label.configure(text=CS.data[1]['getCorona'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=222)
+    date_label.configure(text=CS.data[1]['death'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=258)
+    date_label.configure(text=CS.data[1]['care'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=294)
+    date_label.configure(text=CS.data[1]['exam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=330)
+    date_label.configure(text=CS.data[1]['clear'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=366)
+    date_label.configure(text=CS.data[1]['resutlNeg'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=402)
+    date_label.configure(text=CS.data[1]['doneExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=438)
+    date_label.configure(text=CS.data[1]['totalExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+
 def HomeState():
     global window
     window = Tk()
@@ -125,6 +277,8 @@ def HomeState():
     searchScreeningClinicButton()
     searchScreeningCarClinicButton()
     searchSafetyHospitalButton()
+
+    CoronaStatus()
     window.mainloop()
 
 
