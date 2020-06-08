@@ -67,7 +67,7 @@ import tkinter as tk
 from pandas import DataFrame
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-
+import HomeUI
 
 
 data2 = {'Year': [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
@@ -77,17 +77,14 @@ df2 = DataFrame(data2, columns=['Year', 'Unemployment_Rate'])
 
 
 
-root = tk.Tk()
+
+def makegrape(window):
+    figure2 = plt.Figure(figsize=(4, 4), dpi=80)
+    ax2 = figure2.add_subplot(111)
+    line2 = FigureCanvasTkAgg(figure2, window)
+    line2.get_tk_widget().place(x=600, y=150)
+    df21 = df2[['Year', 'Unemployment_Rate']].groupby('Year').sum()
+    df21.plot(kind='line', legend=True, ax=ax2, color='r', marker='o', fontsize=10)
+    ax2.set_title('Year Vs. Unemployment Rate')
 
 
-figure2 = plt.Figure(figsize=(5, 4), dpi=100)
-ax2 = figure2.add_subplot(111)
-line2 = FigureCanvasTkAgg(figure2, root)
-line2.get_tk_widget().pack(side=tk.LEFT, fill=tk.BOTH)
-df2 = df2[['Year', 'Unemployment_Rate']].groupby('Year').sum()
-df2.plot(kind='line', legend=True, ax=ax2, color='r', marker='o', fontsize=10)
-ax2.set_title('Year Vs. Unemployment Rate')
-
-
-
-root.mainloop()

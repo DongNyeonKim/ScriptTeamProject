@@ -7,6 +7,7 @@ import MaskUI
 import ShoppingUI
 import SearchFunction
 import CoronaStateXMLParsing as CS
+import temp
 
 def MoveMaskState():
     window.destroy()
@@ -264,6 +265,10 @@ def CoronaStatus():
     text_label.configure(text="※금일 데이터가 업데이트 안되었을 경우 전일 데이터를 불러옵니다.",
                          background='LightSteelBlue1', font=('Arial', 10))
 
+def makeCoronaGrape():
+    pass
+    #temp.line2.get_tk_widget().place(x=300, y=300)
+
 def HomeState():
     global window
     window = Tk()
@@ -283,6 +288,7 @@ def HomeState():
     searchSafetyHospitalButton()
 
     CoronaStatus()
+    temp.makegrape(window)
     window.mainloop()
 
 
