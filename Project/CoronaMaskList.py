@@ -1,29 +1,7 @@
-# from tkinter import *
-# from pandastable import Table, TableModel
-#
-# class TestApp(Frame):
-#     """Basic test frame for the table"""
-#     def __init__(self, parent=None):
-#         self.parent = parent
-#         Frame.__init__(self)
-#         self.main = self.master
-#         self.main.geometry('600x400+200+100')
-#         self.main.title('Table app')
-#         f = Frame(self.main)
-#         f.pack(fill=BOTH,expand=1)
-#         df = TableModel.getSampleData()
-#         self.table = pt = Table(f, dataframe=df,
-#                                 showtoolbar=True, showstatusbar=True)
-#         pt.show()
-#         return
-#
-# app = TestApp()
-# #launch the app
-# app.mainloop()
 
 import requests as rq
 import json
-import tkinter as tk
+from tkinter import *
 import tkinter.ttk as ttk
 import webbrowser as wbs
 import tkinter.messagebox as tkMsg
@@ -79,7 +57,7 @@ def infoSearch():
         # empty : 회색(0~1개)/
         # few: 빨강색(2~29개)/some: 노랑색(30~99개)/ plenty: 녹색(100개 이상)
         status = store.get('remain_stat')
-        if status in ["few", "some", "plenty"]:
+        if status in ["few", "some", "plenty","empty","black"]:
             # header = ["판매처","주소","재고량","입고일시","생성일시"]
             info = (store.get('name'),
                     store.get('addr').replace(iptAddr.get(), "")
@@ -94,6 +72,8 @@ def infoSearch():
     trv.tag_configure('plenty', background="green")
     trv.tag_configure('some', background="yellow")
     trv.tag_configure('few', background="red")
+    trv.tag_configure('empty', background="white")
+    trv.tag_configure('black', background="black")
 
 '''
  더블클릭시 해당 판매처 위치 검색(네이버)
@@ -120,20 +100,51 @@ def makeMaskList(window):
     header = ["판매처", "주소", "재고량", "입고일시", "생성일시"]
     global stores
     stores = []  # store list
+    #타이틀
+    title = Label(window)
+    title.place(x=200, y=110)
+    title.configure(text= "공적마스크 판매처 검색", font = ('서울서체',20,'bold'),
+                                height = 2, width=20,
+                                background='LightSteelBlue1')
     # 입력받는 곳
-    lb1 = tk.Label(window, text="주소 : ")
-    lb1.grid(row=0, column=0, sticky="e")
+    lb1 = Label(window)
+    lb1.place(x=100, y=180)
+    lb1.configure(text="주소 : ", font = ('서울서체',15,'bold'),
+                                background='LightSteelBlue1')
+
     global iptAddr
-    iptAddr = tk.Entry(window)  # 주소 입력받는 인풋 위젯
+    iptAddr = Entry(window)  # 주소 입력받는 인풋 위젯
     iptAddr.insert(0, addr)
-    iptAddr.grid(row=0, column=1, sticky='w')
-    btnSearch = tk.Button(window, text="Search", width=20, command=infoSearch)
-    btnSearch.grid(row=0, column=2)
+    iptAddr.place(x=160, y=180,height=30)
+    iptAddr.configure(width = 25, background='white',font = ('서울서체',15,'bold'))
+
+    btnSearch = Button(window, text="Search", width=15, command=infoSearch)
+    btnSearch.place(x=440, y=180,height=30)
+    btnSearch.configure(background='white',font = ('서울서체',10,'bold'))
     # 안내 문구
-    lb2 = tk.Label(window, text="few: 빨강색(2~29개), some: 노랑색(30~99개), plenty: 녹색(100개 이상)")
-    lb2.place(x=80, y=120)
-    lb2 = tk.Label(window, text="※ 판매처 더블클릭 시 위치 검색")
-    lb2.place(x=80, y=100)
+    lb2 = Label(window, text="few(Red) - 2~29개, some(Yellow) - 30~99개, plenty(Green) -  100개 이상")
+
+    lb2_some = Label(window, text="some(Yellow) - 30~99개")
+    lb2_some.(x=600, y=120)
+    lb2_some.configure(foreground = 'yellow', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+
+    lb2_few = Label(window, text="few(Red) - 2~29개")
+    lb2_few.place(x=600, y=120)
+    lb2_few.configure(foreground = 'red', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+
+
+    lb2_empty = Label(window, text="empty(White) - 1개 이하")
+    lb2_empty.place(x=600, y=80)
+    lb2_empty.configure(foreground = 'black', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+
+    lb2_black = Label(window, text="black(Black) - 판매중지")
+    lb2_black.place(x=600, y=100)
+    lb2_black.configure(foreground = 'black', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+
+    lb2 = Label(window)
+    lb2.place(x=60, y=560)
+    lb2.configure(text="※데이터 더블클릭 시 위치 검색", font=("",10, 'bold'),
+              background='LightSteelBlue1')
     # 판매현황표시 --> treeview(like table)
     global trv
     trv = ttk.Treeview(window, columns=header, displaycolumns=header, padding=5)

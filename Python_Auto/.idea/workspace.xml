@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b6d88a5-0549-457e-b45a-fb9f82e0175c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Project/CoronaGraph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Project/CoronaMaskList.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/CoronaStateXMLParsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/CoronaStateXMLParsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/HomeUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/HomeUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/MainTUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/MainTUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/MaskUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/MaskUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/temp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project/연습장.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/CoronaMaskList.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/CoronaMaskList.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImageToExcel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImageToExcel.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
