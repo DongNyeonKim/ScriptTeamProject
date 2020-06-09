@@ -1,46 +1,34 @@
-import requests
-import json
-from tqdm import tqdm
-import requests as rq
-import json
 import tkinter as tk
-import tkinter.ttk as ttk
-import webbrowser as wbs
-import tkinter.messagebox as tkMsg
+from tkinter import ttk
 
-def getMaskStoreSalesInfo():
-    url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/sales/json?page=1"
-    req = requests.get(url)
-    total_page = req.json()['totalPages']
-    sales_dict = {}
-    for page_num in tqdm(range(1, total_page+1)):
-        url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/sales/json?page=" + str(page_num)
-        req = requests.get(url)
-        json_data = req.json()
-        sales_infos = json_data['sales']
-        print(sales_infos)
-        for i in range(len(sales_infos)):
-            code = sales_infos[i]['code']
-            try:
-                created_at = sales_infos[i]['created_at']
-            except:
-                created_at = "no_data"
-            try:
-                remain_stat = sales_infos[i]['remain_stat']
-            except:
-                remain_stat = "no_data"
-            try:
-                stock_at = sales_infos[i]['stock_at']
-            except:
-                stock_at = "no_data"
+counter = 0
+numbers = ['1', '10', '11', '2', '3', '4', '24', '12', '5']
 
-            sales_dict[code] = {"created_at":created_at, "remain_stat":remain_stat, "stock_at":stock_at}
+def sort_treeview():
+       content = [(tv.set(child, column), child)
+                                   for child in tv.get_children('')]
+       try:
+           content.sort(key=lambda t: int(t[0]))
+       except:
+           content.sort()
+       for index, (val, child) in enumerate(content):
+           tv.move(child, '', index)
 
-    return sales_dict
+def add_item():
+       global counter
+       if counter < 8:
+           tv.insert('', 'end', values=numbers[counter])
+           counter += 1
+           # Sort the treeview after the new item was inserted
+           # -------------------------------------------------
+           sort_treeview()
 
-header = ["판매처","주소","재고량","입고일시","생성일시"]
-stores = getMaskStoreSalesInfo()
+root = tk.Tk()
+column = 'number'
+tv = ttk.Treeview(root, columns=column, show='headings')
+tv.pack()
 
-#해당 주소로 판매처 및 재고현황 정보 요청
-def requetJson():
-    pass #3.2에서 코딩
+button = tk.Button(root, text='Add entry', command=add_item)
+button.pack()
+
+root.mainloop()

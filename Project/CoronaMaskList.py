@@ -26,14 +26,6 @@ def requetJson():
     return json.loads(res.content)
 
 def fixed_map(option):
-    # Fix for setting text colour for Tkinter 8.6.9
-    # From: https://core.tcl.tk/tk/info/509cafafae
-    #
-    # Returns the style map for 'option' with any styles starting with
-    # ('!disabled', '!selected', ...) filtered out.
-
-    # style.map() returns an empty list for missing options, so this
-    # should be future-safe.
     return [elm for elm in style.map('Treeview', query_opt=option) if
       elm[:2] != ('!disabled', '!selected')]
 
@@ -122,28 +114,34 @@ def makeMaskList(window):
     btnSearch.place(x=440, y=180,height=30)
     btnSearch.configure(background='white',font = ('서울서체',10,'bold'))
     # 안내 문구
-    lb2 = Label(window, text="few(Red) - 2~29개, some(Yellow) - 30~99개, plenty(Green) -  100개 이상")
+    lb2_plenty = Label(window, text="plenty(Green) - 100개 이상")
+    lb2_plenty.place(x=590, y=115)
+    lb2_plenty.configure(foreground = 'green', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
     lb2_some = Label(window, text="some(Yellow) - 30~99개")
-    lb2_some.(x=600, y=120)
-    lb2_some.configure(foreground = 'yellow', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+    lb2_some.place(x=590, y=135)
+    lb2_some.configure(foreground = 'yellow', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
     lb2_few = Label(window, text="few(Red) - 2~29개")
-    lb2_few.place(x=600, y=120)
-    lb2_few.configure(foreground = 'red', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+    lb2_few.place(x=590, y=155)
+    lb2_few.configure(foreground = 'red', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
 
     lb2_empty = Label(window, text="empty(White) - 1개 이하")
-    lb2_empty.place(x=600, y=80)
-    lb2_empty.configure(foreground = 'black', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+    lb2_empty.place(x=590, y=175)
+    lb2_empty.configure(foreground = 'white', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
     lb2_black = Label(window, text="black(Black) - 판매중지")
-    lb2_black.place(x=600, y=100)
-    lb2_black.configure(foreground = 'black', background='LightSteelBlue1', font=('서울서체', 10, 'bold'))
+    lb2_black.place(x=590, y=195)
+    lb2_black.configure(foreground = 'black', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
     lb2 = Label(window)
     lb2.place(x=60, y=560)
     lb2.configure(text="※데이터 더블클릭 시 위치 검색", font=("",10, 'bold'),
+              background='LightSteelBlue1')
+    lb3 = Label(window)
+    lb3.place(x=300, y=560)
+    lb3.configure(text="※주소 입력 예시 >서울특별시 양천구, 강원도 춘천시[시, 구 까지 입력]", font=("",10, 'bold'),
               background='LightSteelBlue1')
     # 판매현황표시 --> treeview(like table)
     global trv
