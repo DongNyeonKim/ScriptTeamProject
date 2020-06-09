@@ -1,4 +1,3 @@
-
 import requests as rq
 import json
 from tkinter import *
@@ -61,9 +60,9 @@ def infoSearch():
             trv.insert('', 'end', text=cnt, values=info, tags=[status])
             #print(stores) #추출한 데이터 확인
     # 재고 상태별 행 색상 변경(적용이 안된다면 3.3 버그 해결부분 참고)
-    trv.tag_configure('plenty', background="green")
+    trv.tag_configure('plenty', background="limegreen")
     trv.tag_configure('some', background="yellow")
-    trv.tag_configure('few', background="red")
+    trv.tag_configure('few', background="orangered")
     trv.tag_configure('empty', background="white")
     trv.tag_configure('black', background="black")
 
