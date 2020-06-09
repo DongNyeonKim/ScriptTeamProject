@@ -4,6 +4,7 @@ from tkinter import font
 import tkinter.messagebox
 import HomeUI
 import ShoppingUI
+import CoronaMaskList
 
 def MoveHomeState():
     window.destroy()
@@ -76,6 +77,17 @@ def telegramButton():
     telegram_Button.bind("<Enter>", lambda _: telegram_text.configure(text="텔레그렘 봇"))
     telegram_Button.bind("<Leave>", lambda _: telegram_text.configure(text=""))
 
+def listbox():
+    scrollbar = tkinter.Scrollbar(window)
+    scrollbar.pack(side="right", fill="y")
+
+    listbox = tkinter.Listbox(window, yscrollcommand=scrollbar.set)
+    for line in range(1, 1001):
+        listbox.insert(line, str(line) + "/1000")
+    listbox.pack(side="left")
+
+    scrollbar["command"] = listbox.yview
+
 
 def MaskState():
     global window
@@ -90,6 +102,8 @@ def MaskState():
     shoppingButton()
     titleImage()
     telegramButton()
+    #listbox()
+    CoronaMaskList.makeMaskList(window)
     window.mainloop()
 
 

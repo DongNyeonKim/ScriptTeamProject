@@ -7,7 +7,7 @@ import datetime
 
 today = datetime.datetime.now()
 todayDate = today.strftime("20%y%m%d")
-b7Date = eval(todayDate)-7
+b7Date = eval(todayDate)-8
 
 #open_url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=' + open_api_key + params
 data = []
@@ -22,6 +22,11 @@ def getCoronaData():
 
     rc= soup.select('resultcode')
     resultcode = rc[0].text
+
+    # de = soup.select('stateDt')
+    # date = de[0].text
+    # if (date != todayDate):
+    #     b7Date = b9Date
 
     #안열리는 오류가 발생하여 오류 없이 열동안 반복
     while resultcode != '00':
@@ -78,3 +83,4 @@ def getCoronaData():
     print("코로나데이터 파싱완료")
 
 getCoronaData()
+

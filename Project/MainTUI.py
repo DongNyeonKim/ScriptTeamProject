@@ -1,5 +1,7 @@
 import HomeUI
+import MaskUI
 import CoronaStateXMLParsing
 
 
-HomeUI.HomeState()
+#HomeUI.HomeState()
+MaskUI.MaskState()

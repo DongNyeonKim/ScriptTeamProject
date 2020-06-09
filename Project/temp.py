@@ -1,47 +1,46 @@
-from pandas import DataFrame
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import CoronaStateXMLParsing as CS
+import requests
+import json
+from tqdm import tqdm
+import requests as rq
+import json
+import tkinter as tk
+import tkinter.ttk as ttk
+import webbrowser as wbs
+import tkinter.messagebox as tkMsg
 
-#한글 폰트 적용
-from matplotlib import font_manager, rc
-font_name = font_manager.FontProperties(fname="c:/Windows/Fonts/malgun.ttf").get_name()
-rc('font', family=font_name)
+def getMaskStoreSalesInfo():
+    url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/sales/json?page=1"
+    req = requests.get(url)
+    total_page = req.json()['totalPages']
+    sales_dict = {}
+    for page_num in tqdm(range(1, total_page+1)):
+        url = "https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/sales/json?page=" + str(page_num)
+        req = requests.get(url)
+        json_data = req.json()
+        sales_infos = json_data['sales']
+        print(sales_infos)
+        for i in range(len(sales_infos)):
+            code = sales_infos[i]['code']
+            try:
+                created_at = sales_infos[i]['created_at']
+            except:
+                created_at = "no_data"
+            try:
+                remain_stat = sales_infos[i]['remain_stat']
+            except:
+                remain_stat = "no_data"
+            try:
+                stock_at = sales_infos[i]['stock_at']
+            except:
+                stock_at = "no_data"
 
+            sales_dict[code] = {"created_at":created_at, "remain_stat":remain_stat, "stock_at":stock_at}
 
-data2 = {'날짜': [ CS.data[0]['date'], CS.data[1]['date'],  CS.data[2]['date'],  CS.data[3]['date'],  CS.data[4]['date'],  CS.data[5]['date'],  CS.data[6]['date']],
-         '일확진자': [int(CS.data[0]['getCorona'])-int(CS.data[1]['getCorona']), int(CS.data[1]['getCorona'])-int(CS.data[2]['getCorona']), int(CS.data[2]['getCorona'])-int(CS.data[3]['getCorona']),
-                              int(CS.data[3]['getCorona'])-int(CS.data[4]['getCorona']), int(CS.data[4]['getCorona'])-int(CS.data[5]['getCorona']), int(CS.data[5]['getCorona'])-int(CS.data[6]['getCorona']),
-                              int(CS.data[6]['getCorona'])-int(CS.data[7]['getCorona'])]
-         }
-df2 = DataFrame(data2, columns=['날짜', '일확진자'])
+    return sales_dict
 
-df2=df2.astype({'일확진자':int})
+header = ["판매처","주소","재고량","입고일시","생성일시"]
+stores = getMaskStoreSalesInfo()
 
-
-def makegrape(window):
-    figure2 = plt.Figure(figsize=(6, 4), dpi=80)
-    ax2 = figure2.add_subplot(111)
-    list = [i for i in range(0,100,2)]
-    ax2.set_yticks(list)
-    line2 = FigureCanvasTkAgg(figure2, window)
-    line2.get_tk_widget().place(x=600, y=150)
-    df21 = df2[["날짜", "일확진자"]].groupby("날짜").sum()
-    df21.plot(kind='line', legend=True, ax=ax2, color='r', marker='o',fontsize=10)
-
-    l_date = [int(i) for i in data2["날짜"]]
-    l_getco = data2["일확진자"]
-    for i in (range(7)):
-        print(6-i,l_getco[i])
-        ax2.scatter(6-i, l_getco[i])
-        ax2.text(6-i+0.2,l_getco[i],  "{}".format(l_getco[i]), fontsize=15)
-
-
-    ax2.set_yticklabels(list, fontsize=15)
-
-    ax2.set_xlabel("날짜",fontsize=12,weight='bold')
-    ax2.set_ylabel("일확진자",fontsize=12,weight='bold')
-
-    ax2.set_title("최근 7일 일일확진자",fontsize=20,weight='bold')
-
-
+#해당 주소로 판매처 및 재고현황 정보 요청
+def requetJson():
+    pass #3.2에서 코딩
