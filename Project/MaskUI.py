@@ -85,6 +85,9 @@ def totalmapButton():
     totalmapButton.image = ImageTk.PhotoImage(pil_image)
     totalmapButton = Button(image = totalmapButton.image, command=lambda: GetCoronaMap.openTotalMap())
     totalmapButton.place(x=850,y=150)
+    label = Label(window, text="전국 공적마스크 판매처")
+    label.place(x=820, y=320)
+    label.configure(foreground='black', background='LightSteelBlue1', font=('서울서체', 15, 'bold'))
 
 
 def searchmapButton():
@@ -94,6 +97,9 @@ def searchmapButton():
     searchmapButton.image = ImageTk.PhotoImage(pil_image)
     searchmapButton = Button(image = searchmapButton.image, command=lambda: GetCoronaMap.makeSearchMapData())
     searchmapButton.place(x=850,y=380)
+    label = Label(window, text="검색 공적마스크 판매처")
+    label.place(x=820, y=550)
+    label.configure(foreground='black', background='LightSteelBlue1', font=('서울서체', 15, 'bold'))
 
 
 
