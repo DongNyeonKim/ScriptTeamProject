@@ -5,6 +5,7 @@ import tkinter.messagebox
 import HomeUI
 import ShoppingUI
 import CoronaMaskList
+import GetCoronaMap
 
 def MoveHomeState():
     window.destroy()
@@ -82,8 +83,17 @@ def totalmapButton():
     pil_image = Image.open('리소스/지도.jpeg')
     pil_image = pil_image.resize((150, 150), Image.ANTIALIAS)
     totalmapButton.image = ImageTk.PhotoImage(pil_image)
-    totalmapButton = Button(image = totalmapButton.image)
+    totalmapButton = Button(image = totalmapButton.image, command=lambda: GetCoronaMap.openTotalMap())
     totalmapButton.place(x=850,y=150)
+
+
+def searchmapButton():
+    searchmapButton =Button(window)
+    pil_image = Image.open('리소스/지도.jpeg')
+    pil_image = pil_image.resize((150, 150), Image.ANTIALIAS)
+    searchmapButton.image = ImageTk.PhotoImage(pil_image)
+    searchmapButton = Button(image = searchmapButton.image, command=lambda: GetCoronaMap.makeSearchMapData())
+    searchmapButton.place(x=850,y=380)
 
 
 
@@ -103,6 +113,7 @@ def MaskState():
     CoronaMaskList.makeMaskList(window)
 
     totalmapButton()
+    searchmapButton()
     window.mainloop()
 
 

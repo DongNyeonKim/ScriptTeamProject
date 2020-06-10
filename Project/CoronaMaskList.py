@@ -63,7 +63,7 @@ def infoSearch():
     trv.tag_configure('plenty', background="limegreen")
     trv.tag_configure('some', background="yellow")
     trv.tag_configure('few', background="orangered")
-    trv.tag_configure('empty', background="white")
+    trv.tag_configure('empty', background="whitesmoke")
     trv.tag_configure('black', background="black")
 
 '''

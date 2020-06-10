@@ -1,7 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
 import PIL.ImageTk
-
 from tkinter import font
 import tkinter.messagebox
 import tkinter.ttk
@@ -10,6 +9,7 @@ import ShoppingUI
 import SearchFunction
 import CoronaStateXMLParsing as CS
 import CoronaGraph
+
 
 def MoveMaskState():
     window.destroy()
@@ -289,7 +289,6 @@ def HomeState():
     CoronaStatus()
     CoronaGraph.makegrape(window)
     window.mainloop()
-
 
 
 
