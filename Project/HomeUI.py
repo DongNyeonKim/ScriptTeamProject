@@ -1,5 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import PIL.ImageTk
+
 from tkinter import font
 import tkinter.messagebox
 import tkinter.ttk
