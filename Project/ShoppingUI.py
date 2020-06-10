@@ -76,6 +76,20 @@ def telegramButton():
     telegram_Button.bind("<Enter>", lambda _: telegram_text.configure(text="텔레그렘 봇"))
     telegram_Button.bind("<Leave>", lambda _: telegram_text.configure(text=""))
 
+def searchRadiobutton():
+    var = IntVar()
+    mask = Radiobutton(window, text = "마스크", value = 1,variable=var)
+    mask.place(x=100,y=200)
+    hand = Radiobutton(window, text = "손소독제", value = 2,variable=var)
+    hand.place(x=200,y=200)
+    heat = Radiobutton(window, text = "체온계", value = 3,variable=var)
+    heat.place(x=300,y=200)
+    heat = Radiobutton(window, text = "기타", value = 4,variable=var)
+    heat.place(x=400,y=200)
+
+def temp():
+    pass
+
 
 def ShoppingState():
     global window
@@ -90,6 +104,7 @@ def ShoppingState():
     shoppingButton()
     titleImage()
     telegramButton()
+    searchRadiobutton()
     window.mainloop()
 
 

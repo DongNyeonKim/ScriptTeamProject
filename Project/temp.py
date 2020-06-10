@@ -1,34 +1,40 @@
-import tkinter as tk
+from tkinter import *
+import tkinter.ttk as ttk
 from tkinter import ttk
+import json
+from PIL import Image, ImageTk
+okno = Tk()
 
-counter = 0
-numbers = ['1', '10', '11', '2', '3', '4', '24', '12', '5']
+def maketable():
+       style = ttk.Style(okno)
+       style.configure("TVS.Treeview", rowheight=40)
+       tv = ttk.Treeview(okno, style="TVS.Treeview")
 
-def sort_treeview():
-       content = [(tv.set(child, column), child)
-                                   for child in tv.get_children('')]
-       try:
-           content.sort(key=lambda t: int(t[0]))
-       except:
-           content.sort()
-       for index, (val, child) in enumerate(content):
-           tv.move(child, '', index)
+       tv['columns'] = ('LName', 'Pic')
+       tv.heading("#0", text='Jméno', anchor='w')
+       tv.column("#0", anchor="w", width=200)
 
-def add_item():
-       global counter
-       if counter < 8:
-           tv.insert('', 'end', values=numbers[counter])
-           counter += 1
-           # Sort the treeview after the new item was inserted
-           # -------------------------------------------------
-           sort_treeview()
+       tv.heading('LName', text='Příjmení')
+       tv.column('LName', anchor='center', width=200)
 
-root = tk.Tk()
-column = 'number'
-tv = ttk.Treeview(root, columns=column, show='headings')
-tv.pack()
+       tv.heading('Pic', text='Obrazek')
+       tv.column('Pic', anchor='center', width=200)
 
-button = tk.Button(root, text='Add entry', command=add_item)
-button.pack()
+       dbf = open("xxx.json", 'r')
+       db = json.loads(dbf.read())
 
-root.mainloop()
+       for i in range(0, len(db)):
+           root_pic1 = Image.open(db[i]["Pic"])
+           root_pic2 = ImageTk.PhotoImage(root_pic1)
+           tv.insert('', 'end', image=root_pic2, text=db[i]['Name'], values=(db[i]['LName']))
+
+
+       tv.pack()
+
+
+def main():
+       okno.mainloop()
+
+if __name__ == '__main__':
+       maketable()
+       main()

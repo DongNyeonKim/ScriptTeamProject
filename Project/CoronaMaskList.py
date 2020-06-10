@@ -4,6 +4,7 @@ from tkinter import *
 import tkinter.ttk as ttk
 import webbrowser as wbs
 import tkinter.messagebox as tkMsg
+from PIL import Image, ImageTk
 import MaskUI
 
 
@@ -56,6 +57,7 @@ def infoSearch():
                     , store.get('created_at'))
             stores.append(info)
             cnt += 1
+
             # 재고 상태에 따라 색상 변경 해줄려고 재고 상태를 태그로 달아줌
             trv.insert('', 'end', text=cnt, values=info, tags=[status])
             #print(stores) #추출한 데이터 확인
