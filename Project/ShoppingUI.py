@@ -79,28 +79,43 @@ def telegramButton():
     telegram_Button.bind("<Leave>", lambda _: telegram_text.configure(text=""))
 
 def searchRadiobutton():
+    global var
     var = IntVar()
-    mask = Radiobutton(window, text = "마스크", value = 1,variable=var)
+    mask = Radiobutton(window, text = "마스크", value = 1, variable=var, command =radiobuttonCommand)
     mask.place(x=100,y=200)
-    hand = Radiobutton(window, text = "손소독제", value = 2,variable=var)
+    hand = Radiobutton(window, text = "손소독제", value = 2,variable=var, command =radiobuttonCommand)
     hand.place(x=200,y=200)
-    heat = Radiobutton(window, text = "체온계", value = 3,variable=var)
+    heat = Radiobutton(window, text = "체온계", value = 3,variable=var, command =radiobuttonCommand)
     heat.place(x=300,y=200)
-    heat = Radiobutton(window, text = "기타", value = 4,variable=var)
+    heat = Radiobutton(window, text = "기타", value = 4,variable=var, command =radiobuttonCommand)
     heat.place(x=400,y=200)
 
     global addr
     addr = "이외 물품"
-    iptAddr = Entry(window)  # 주소 입력받는 인풋 위젯
+    global iptAddr
+    iptAddr = Entry(window, state = 'disabled')  # 주소 입력받는 인풋 위젯
     iptAddr.insert(0, addr)
-    iptAddr.place(x=160, y=180, height=30)
+    iptAddr.place(x=360, y=180, height=30)
     iptAddr.configure(width=25, background='white', font=('서울서체', 15, 'bold'))
 
     btnSearch = Button(window, text="Search", width=15)
-    btnSearch.place(x=440, y=180, height=30)
+    btnSearch.place(x=660, y=180, height=30)
     btnSearch.configure(background='white', font=('서울서체', 10, 'bold'))
-def temp():
-    pass
+
+def radiobuttonCommand():
+    a = var.get()
+    if a ==1:
+        print("마스크")
+        iptAddr.configure(state='disabled')
+    if a ==2:
+        print("손소독제")
+        iptAddr.configure(state='disabled')
+    if a ==3:
+        print("체온계")
+        iptAddr.configure(state='disabled')
+    if a ==4:
+        print("기타")
+        iptAddr.configure(state = 'normal')
 
 
 def ShoppingState():
