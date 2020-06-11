@@ -122,6 +122,3 @@ def MaskState():
     searchmapButton()
     window.mainloop()
 
-
-MaskState()
-

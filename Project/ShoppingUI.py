@@ -24,10 +24,6 @@ def titleImage():
     title_label.place(x=20,y=10)
 
 
-def clickicon():
-    print("Click")
-
-
 def homeButton():
     home_Button =Button(window)
     pil_image = Image.open('리소스/홈버튼.JPG')
@@ -142,7 +138,6 @@ def ShoppingState():
 
     window.mainloop()
 
-ShoppingState()
 
 
 
