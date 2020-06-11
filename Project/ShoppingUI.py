@@ -4,6 +4,7 @@ from tkinter import font
 import tkinter.messagebox
 import HomeUI
 import MaskUI
+import ShoppingList
 
 def MoveHomeState():
     window.destroy()
@@ -105,6 +106,8 @@ def ShoppingState():
     titleImage()
     telegramButton()
     searchRadiobutton()
+
+    ShoppingList.makeShoppingList(window)
     window.mainloop()
 
 

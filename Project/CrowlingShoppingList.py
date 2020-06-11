@@ -16,7 +16,7 @@ SearchList = []
 ##
 num=1
 
-for i in total: 
+for i in total:
     temp = []
     tagname = search+str(num)
     names = i.select('._3ldP-RMmbZ')
@@ -24,10 +24,7 @@ for i in total:
     prices = i.select('._1vPmSw6Psr')
     price = prices[0].find("strong").text + '원'
     url = soup.select('._1SwezRSbBH > a')[0]['href']
-    # print(name)
-    # print(price)
-    # print(url)
-    #print()
+
     num += 1
     temp.append(tagname)
     temp.append(name)

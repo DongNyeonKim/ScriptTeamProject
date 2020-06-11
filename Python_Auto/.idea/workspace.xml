@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b6d88a5-0549-457e-b45a-fb9f82e0175c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Project/CrowlingShoppingList.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Project/ShoppingList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/ShoppingUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/ShoppingUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Project/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Project/temp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +29,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -39,7 +44,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.GoChrome">
+  <component name="RunManager" selected="Python.Project1">
     <configuration name="GoChrome" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Python_Auto" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,8 +110,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.GoChrome" />
         <item itemvalue="Python.Project1" />
+        <item itemvalue="Python.GoChrome" />
         <item itemvalue="Python.GoogleCrowling" />
       </list>
     </recent_temporary>
