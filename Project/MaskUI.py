@@ -22,8 +22,6 @@ def titleImage():
     title_label.place(x=20,y=10)
 
 
-def clickicon():
-    print("Click")
 
 
 def homeButton():
