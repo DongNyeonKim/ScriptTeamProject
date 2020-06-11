@@ -4,17 +4,31 @@ import CrowlingShoppingList as CSL
 from tkinter import *
 import tkinter.ttk as ttk
 import webbrowser as wbs
+from io import BytesIO
+from PIL import Image, ImageTk
+import urllib.request
 
-def cc():
-    treeview.tag_configure("tag2", background="red")
+def giveImageURL(e):
+    imageURL = treeview.item(treeview.selection()[0])['values'][4]
+
+    with urllib.request.urlopen(imageURL) as u:
+        global newImg2
+        raw_data = u.read()
+        im = Image.open(BytesIO(raw_data))
+        im = im.resize((250, 250), Image.ANTIALIAS)
+        newImg2 = ImageTk.PhotoImage(im)
+        imageLabel.configure(image=newImg2)
+
 
 def OnDoubleClick(e):
     #treeview에서 선택된 아이템정보 가져오기
-    selectedItem = treeview.item(treeview.selection()[0])['values']
+    selectedItem = treeview.item(treeview.selection()[0])['values'][3]
     # 0: name, 1: addr, 2: remain (주소와 판매처 이름 합치기)
-    print(selectedItem)
-
-    #wbs.open(selectedItem, new=1) #해당 주소로 인터넷창 팝업
+    #print(selectedItem)
+    # print(selectedAddr) #합친 주소정보 확인
+    #naverURL = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+    # 보낼 데이터 확인
+    wbs.open(selectedItem, new=1) #해당 주소로 인터넷창 팝업
 
 
 def makeShoppingList(window):
@@ -42,5 +56,9 @@ def makeShoppingList(window):
     for i in range(len(CSL.SearchList)):
         treeview.insert('', 'end', text=i+1, values=CSL.SearchList[i])
 
-    treeview.tag_bind("tag1", sequence="<<TreeviewSelect>>", callback=cc)
+    global imageLabel
+    imageLabel = Label(window, background = "LightSteelBlue1")
+    imageLabel.place(x=100,y=150)
+
+    treeview.bind("<Button-1>", giveImageURL)
     treeview.bind("<Double-1>", OnDoubleClick)

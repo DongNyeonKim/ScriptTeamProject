@@ -4,5 +4,5 @@ import CoronaStateXMLParsing
 import GetCoronaMap
 import ShoppingUI
 
-#HomeUI.HomeState()
-ShoppingUI.ShoppingState()
+HomeUI.HomeState()
+#ShoppingUI.ShoppingState()

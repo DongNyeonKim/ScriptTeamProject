@@ -18,12 +18,22 @@ num=1
 
 for i in total: 
     temp = []
+    #print(num, i)
     tagname = search+str(num)
     names = i.select('._3ldP-RMmbZ')
     name = names[0].text
     prices = i.select('._1vPmSw6Psr')
     price = prices[0].find("strong").text + '원'
-    url = soup.select('basicList_title__3P9Q7 > a')[0]['href']
+
+    urls = i.select('._2oDyaXK-qb')[0]
+    siteURL = urls.get('href')
+    if siteURL == None:
+        siteURL = i.get('href')
+
+    imageurls = i.select('._2oDyaXK-qb > img')[0]
+    imgaeURL = imageurls.get('src')
+
+    #url = url.attrs['href']
     # print(name)
     # print(price)
     # print(url)
@@ -32,7 +42,8 @@ for i in total:
     temp.append(tagname)
     temp.append(name)
     temp.append(price)
-    temp.append(url)
+    temp.append(siteURL)
+    temp.append(imgaeURL)
     SearchList.append(temp)
 
 print(SearchList)

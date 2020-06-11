@@ -6,6 +6,8 @@ import HomeUI
 import MaskUI
 import ShoppingList
 import CrowlingShoppingList as CSL
+import urllib.request
+from io import BytesIO
 
 def MoveHomeState():
     window.destroy()
@@ -117,7 +119,6 @@ def radiobuttonCommand():
         iptsearchitem.configure(state='normal')
 
 
-
 def searchButtonCommand():
     if  var.get() ==4:
         CSL.search = iptsearchitem.get()
@@ -139,8 +140,9 @@ def ShoppingState():
     telegramButton()
     searchRadiobutton()
 
-
     window.mainloop()
+
+ShoppingState()
 
 
 

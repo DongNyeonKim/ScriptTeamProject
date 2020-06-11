@@ -22,11 +22,20 @@ def crowlingShoppingList():
         price = prices[0].find("strong").text + '원'
         url = soup.select('._1SwezRSbBH > a')[0]['href']
 
+        urls = i.select('._2oDyaXK-qb')[0]
+        siteURL = urls.get('href')
+        if siteURL == None:
+            siteURL = i.get('href')
+
+        imageurls = i.select('._2oDyaXK-qb > img')[0]
+        imgaeURL = imageurls.get('src')
+
         num += 1
         temp.append(tagname)
         temp.append(name)
         temp.append(price)
-        temp.append(url)
+        temp.append(siteURL)
+        temp.append(imgaeURL)
         SearchList.append(temp)
 
 

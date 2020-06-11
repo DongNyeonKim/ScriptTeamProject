@@ -16,8 +16,10 @@ def getCoronaData():
     open_api_key = 'S8rzdkL5i25h2g%2Bk0QgRu%2B4GJ8ShKEiyJAR1xCDbaOj%2Ffh2BCT04Om0AKgQx4mSH1Cu%2BK3GOIB2GwivyW%2B1FSg%3D%3D'
 
     open_url =f"http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey={open_api_key}&pageNo=1&numOfRows=10&startCreateDt={b7Date}&endCreateDt={todayDate}&"
-
-    html = urlopen(open_url).read()
+    try:
+        html = urlopen(open_url).read()
+    except:
+        pass
     soup = BeautifulSoup(html,'html.parser')
 
     rc= soup.select('resultcode')

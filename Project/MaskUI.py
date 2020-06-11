@@ -123,7 +123,5 @@ def MaskState():
     window.mainloop()
 
 
-
-
-
+MaskState()
 
