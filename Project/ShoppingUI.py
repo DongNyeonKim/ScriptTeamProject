@@ -5,6 +5,7 @@ import tkinter.messagebox
 import HomeUI
 import MaskUI
 import ShoppingList
+import CrowlingShoppingList
 
 def MoveHomeState():
     window.destroy()
@@ -88,6 +89,16 @@ def searchRadiobutton():
     heat = Radiobutton(window, text = "기타", value = 4,variable=var)
     heat.place(x=400,y=200)
 
+    global addr
+    addr = "이외 물품"
+    iptAddr = Entry(window)  # 주소 입력받는 인풋 위젯
+    iptAddr.insert(0, addr)
+    iptAddr.place(x=160, y=180, height=30)
+    iptAddr.configure(width=25, background='white', font=('서울서체', 15, 'bold'))
+
+    btnSearch = Button(window, text="Search", width=15)
+    btnSearch.place(x=440, y=180, height=30)
+    btnSearch.configure(background='white', font=('서울서체', 10, 'bold'))
 def temp():
     pass
 
@@ -106,7 +117,7 @@ def ShoppingState():
     titleImage()
     telegramButton()
     searchRadiobutton()
-
+    CrowlingShoppingList.crowlingShoppingList()
     ShoppingList.makeShoppingList(window)
     window.mainloop()
 

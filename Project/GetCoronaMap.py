@@ -180,8 +180,8 @@ def makeSearchMapData():
     data_for_draw3 = mask_store_info.loc[:, ['name', 'latitude', 'longitude', 'remain_stat']]
     data_for_draw_except_nan3 = data_for_draw3.dropna()
     data_for_draw_except_nan3 = data_for_draw_except_nan3[data_for_draw_except_nan3['remain_stat'] != 'break']
-    x= data_for_draw_except_nan3.loc[[1],['latitude']].values
-    y= data_for_draw_except_nan3.loc[[1],['longitude']].values
+    x= data_for_draw_except_nan3.loc[[2],['latitude']].values
+    y= data_for_draw_except_nan3.loc[[2],['longitude']].values
 
     map_hs3 = folium.Map((x,y), zoom_start=14)
 

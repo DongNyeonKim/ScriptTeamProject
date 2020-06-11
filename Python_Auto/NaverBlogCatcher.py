@@ -21,7 +21,7 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import urllib.parse
-#한글 변환 
+#한글 변환
 
 baseURL ='https://search.naver.com/search.naver?where=post&sm=tab_jum&query='
 plusURL = input("검색어를 입력하세요:")
