@@ -2,9 +2,10 @@ import csv
 from urllib.request import urlopen
 from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
+import ShoppingUI
 
 def crowlingShoppingList():
-    search = "체온계"
+    global search
     url = f'https://msearch.shopping.naver.com/search/all?query={quote_plus(search)}'
     html = urlopen(url).read()
     soup = BeautifulSoup(html,'html.parser')

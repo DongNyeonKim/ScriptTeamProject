@@ -5,7 +5,7 @@ import tkinter.messagebox
 import HomeUI
 import MaskUI
 import ShoppingList
-import CrowlingShoppingList
+import CrowlingShoppingList as CSL
 
 def MoveHomeState():
     window.destroy()
@@ -81,42 +81,48 @@ def telegramButton():
 def searchRadiobutton():
     global var
     var = IntVar()
-    mask = Radiobutton(window, text = "마스크", value = 1, variable=var, command =radiobuttonCommand)
-    mask.place(x=100,y=200)
-    hand = Radiobutton(window, text = "손소독제", value = 2,variable=var, command =radiobuttonCommand)
-    hand.place(x=200,y=200)
-    heat = Radiobutton(window, text = "체온계", value = 3,variable=var, command =radiobuttonCommand)
-    heat.place(x=300,y=200)
-    heat = Radiobutton(window, text = "기타", value = 4,variable=var, command =radiobuttonCommand)
-    heat.place(x=400,y=200)
+    mask = Radiobutton(window, text = "마스크", value = 1, variable=var, font=('서울서체', 15, 'bold'), background ="LightSteelBlue1", command =radiobuttonCommand)
+    mask.place(x=550,y=150)
+    hand = Radiobutton(window, text = "손소독제", value = 2,variable=var, font=('서울서체', 15, 'bold'),background ="LightSteelBlue1",command =radiobuttonCommand)
+    hand.place(x=700,y=150)
+    heat = Radiobutton(window, text = "체온계", value = 3,variable=var, font=('서울서체', 15, 'bold'),background ="LightSteelBlue1",command =radiobuttonCommand)
+    heat.place(x=850,y=150)
+    heat = Radiobutton(window, text = "기타", value = 4,variable=var, font=('서울서체', 15, 'bold'), background ="LightSteelBlue1",command =radiobuttonCommand)
+    heat.place(x=550,y=200)
 
-    global addr
-    addr = "이외 물품"
-    global iptAddr
-    iptAddr = Entry(window, state = 'disabled')  # 주소 입력받는 인풋 위젯
-    iptAddr.insert(0, addr)
-    iptAddr.place(x=360, y=180, height=30)
-    iptAddr.configure(width=25, background='white', font=('서울서체', 15, 'bold'))
+    global searchitem
+    searchitem = "이외 검색할 물품을 입력하시오."
+    global iptsearchitem
+    iptsearchitem = Entry(window, state = 'disabled')  # 주소 입력받는 인풋 위젯
+    iptsearchitem.insert(0, searchitem)
+    iptsearchitem.place(x=650, y=200, height=30)
+    iptsearchitem.configure(width=25, background='white', font=('서울서체', 15, 'bold'))
 
-    btnSearch = Button(window, text="Search", width=15)
-    btnSearch.place(x=660, y=180, height=30)
+    btnSearch = Button(window, text="검색", width=14, command = searchButtonCommand)
+    btnSearch.place(x=950, y=200, height=30)
     btnSearch.configure(background='white', font=('서울서체', 10, 'bold'))
 
 def radiobuttonCommand():
     a = var.get()
     if a ==1:
-        print("마스크")
-        iptAddr.configure(state='disabled')
+        CSL.search = "마스크"
+        iptsearchitem.configure(state='disabled')
     if a ==2:
-        print("손소독제")
-        iptAddr.configure(state='disabled')
+        CSL.search = "손소독제"
+        iptsearchitem.configure(state='disabled')
     if a ==3:
-        print("체온계")
-        iptAddr.configure(state='disabled')
+        CSL.search = "체온계"
+        iptsearchitem.configure(state='disabled')
     if a ==4:
-        print("기타")
-        iptAddr.configure(state = 'normal')
+        iptsearchitem.configure(state='normal')
 
+
+
+def searchButtonCommand():
+    if  var.get() ==4:
+        CSL.search = iptsearchitem.get()
+    CSL.crowlingShoppingList()
+    ShoppingList.makeShoppingList(window)
 
 def ShoppingState():
     global window
@@ -132,8 +138,8 @@ def ShoppingState():
     titleImage()
     telegramButton()
     searchRadiobutton()
-    CrowlingShoppingList.crowlingShoppingList()
-    ShoppingList.makeShoppingList(window)
+
+
     window.mainloop()
 
 

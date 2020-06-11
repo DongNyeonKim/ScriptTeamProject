@@ -23,7 +23,7 @@ for i in total:
     name = names[0].text
     prices = i.select('._1vPmSw6Psr')
     price = prices[0].find("strong").text + '원'
-    url = soup.select('._1SwezRSbBH > a')[0]['href']
+    url = soup.select('basicList_title__3P9Q7 > a')[0]['href']
     # print(name)
     # print(price)
     # print(url)

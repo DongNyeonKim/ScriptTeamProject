@@ -2,5 +2,7 @@ import HomeUI
 import MaskUI
 import CoronaStateXMLParsing
 import GetCoronaMap
+import ShoppingUI
 
-HomeUI.HomeState()
+#HomeUI.HomeState()
+ShoppingUI.ShoppingState()

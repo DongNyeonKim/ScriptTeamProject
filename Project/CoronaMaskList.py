@@ -111,7 +111,7 @@ def makeMaskList(window):
     iptAddr.place(x=160, y=180,height=30)
     iptAddr.configure(width = 25, background='white',font = ('서울서체',15,'bold'))
 
-    btnSearch = Button(window, text="Search", width=15, command=infoSearch)
+    btnSearch = Button(window, text="검색", width=15, command=infoSearch)
     btnSearch.place(x=440, y=180,height=30)
     btnSearch.configure(background='white',font = ('서울서체',10,'bold'))
     # 안내 문구
