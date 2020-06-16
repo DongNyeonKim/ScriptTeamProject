@@ -3,11 +3,12 @@ from urllib.parse import quote_plus
 from bs4 import BeautifulSoup
 import http.client
 import urllib.request
-import datetime
+from datetime import datetime, timedelta
 
-today = datetime.datetime.now()
+today = datetime.now()
 todayDate = today.strftime("20%y%m%d")
-b7Date = eval(todayDate)-8
+calDate = today + timedelta(days=-8)
+b8Date = calDate.strftime("20%y%m%d")
 
 #open_url = 'http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=' + open_api_key + params
 data = []
@@ -15,7 +16,7 @@ data = []
 def getCoronaData():
     open_api_key = 'S8rzdkL5i25h2g%2Bk0QgRu%2B4GJ8ShKEiyJAR1xCDbaOj%2Ffh2BCT04Om0AKgQx4mSH1Cu%2BK3GOIB2GwivyW%2B1FSg%3D%3D'
 
-    open_url =f"http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey={open_api_key}&pageNo=1&numOfRows=10&startCreateDt={b7Date}&endCreateDt={todayDate}&"
+    open_url =f"http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey={open_api_key}&pageNo=1&numOfRows=10&startCreateDt={b8Date}&endCreateDt={todayDate}&"
     try:
         html = urlopen(open_url).read()
     except:
