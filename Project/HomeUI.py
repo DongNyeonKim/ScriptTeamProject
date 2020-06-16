@@ -7,8 +7,8 @@ import tkinter.ttk
 import MaskUI
 import ShoppingUI
 import SearchFunction
-#import CoronaStateXMLParsing as CS
-#import CoronaGraph
+import CoronaStateXMLParsing as CS
+import CoronaGraph
 
 
 def MoveMaskState():
@@ -71,7 +71,7 @@ def telegramButton():
     pil_image = Image.open('리소스/텔레그렘아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     telegram_Button.image = ImageTk.PhotoImage(pil_image)
-    telegram_Button = Button(image = telegram_Button.image, command=lambda: clickicon())
+    telegram_Button = Button(image = telegram_Button.image)
     telegram_Button.place(x=1000,y=10)
     telegram_text = Label(window)
     telegram_text.place(x=1010, y=110)
@@ -106,160 +106,160 @@ def searchSafetyHospitalButton():
                                 height = 2, width=12,
                                 background='SteelBlue1')
 
-# def CoronaStatus():
-#     date_label = Label(window)
-#     date_label.place(x=20, y=150)
-#     date_label.configure(text="날짜", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=186)
-#     date_label.configure(text="확진자", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=222)
-#     date_label.configure(text="사망자", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=258)
-#     date_label.configure(text="치료중", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=294)
-#     date_label.configure(text="검사진행", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=330)
-#     date_label.configure(text="완치자", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=366)
-#     date_label.configure(text="음성결과", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=402)
-#     date_label.configure(text="누적검사완료", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=20, y=438)
-#     date_label.configure(text="누적검사", font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='lightgray', relief = 'groove')
-#
-#     date_label = Label(window)
-#     date_label.place(x=195, y=114)
-#     date_label.configure(text="금일", font=('Arial', 20, 'bold'),
-#                          height=1, width=10,
-#                          background='gray', relief='groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=114)
-#     date_label.configure(text="전일", font=('Arial', 20, 'bold'),
-#                          height=1, width=10,
-#                          background='gray', relief='groove')
-#
-#     date_label = Label(window, width= 60)
-#     date_label.place(x=195, y=150)
-#     date_label.configure(text=CS.data[0]['date'], font=('Arial', 20,'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=186)
-#     date_label.configure(text=CS.data[0]['getCorona'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=222)
-#     date_label.configure(text=CS.data[0]['death'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=258)
-#     date_label.configure(text=CS.data[0]['care'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=294)
-#     date_label.configure(text=CS.data[0]['exam'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=330)
-#     date_label.configure(text=CS.data[0]['clear'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=366)
-#     date_label.configure(text=CS.data[0]['resutlNeg'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=402)
-#     date_label.configure(text=CS.data[0]['doneExam'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=195, y=438)
-#     date_label.configure(text=CS.data[0]['totalExam'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#
-#     date_label = Label(window, width= 60)
-#     date_label.place(x=370, y=150)
-#     date_label.configure(text=CS.data[1]['date'], font=('Arial', 20,'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=186)
-#     date_label.configure(text=CS.data[1]['getCorona'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=222)
-#     date_label.configure(text=CS.data[1]['death'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=258)
-#     date_label.configure(text=CS.data[1]['care'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=294)
-#     date_label.configure(text=CS.data[1]['exam'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=330)
-#     date_label.configure(text=CS.data[1]['clear'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=366)
-#     date_label.configure(text=CS.data[1]['resutlNeg'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=402)
-#     date_label.configure(text=CS.data[1]['doneExam'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     date_label = Label(window)
-#     date_label.place(x=370, y=438)
-#     date_label.configure(text=CS.data[1]['totalExam'], font=('Arial', 20, 'bold'),
-#                                 height=1, width=10,
-#                                 background='white', relief = 'groove')
-#     text_label = Label(window)
-#     text_label.place(x=150, y=475)
-#     text_label.configure(text="※금일 데이터가 업데이트 안되었을 경우 전일 데이터를 불러옵니다.",
-#                          background='LightSteelBlue1', font=('Arial', 10))
-#
+def CoronaStatus():
+    date_label = Label(window)
+    date_label.place(x=20, y=150)
+    date_label.configure(text="날짜", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=186)
+    date_label.configure(text="확진자", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=222)
+    date_label.configure(text="사망자", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=258)
+    date_label.configure(text="치료중", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=294)
+    date_label.configure(text="검사진행", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=330)
+    date_label.configure(text="완치자", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=366)
+    date_label.configure(text="음성결과", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=402)
+    date_label.configure(text="누적검사완료", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=20, y=438)
+    date_label.configure(text="누적검사", font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='lightgray', relief = 'groove')
+
+    date_label = Label(window)
+    date_label.place(x=195, y=114)
+    date_label.configure(text="금일", font=('Arial', 20, 'bold'),
+                         height=1, width=10,
+                         background='gray', relief='groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=114)
+    date_label.configure(text="전일", font=('Arial', 20, 'bold'),
+                         height=1, width=10,
+                         background='gray', relief='groove')
+
+    date_label = Label(window, width= 60)
+    date_label.place(x=195, y=150)
+    date_label.configure(text=CS.data[0]['date'], font=('Arial', 20,'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=186)
+    date_label.configure(text=CS.data[0]['getCorona'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=222)
+    date_label.configure(text=CS.data[0]['death'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=258)
+    date_label.configure(text=CS.data[0]['care'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=294)
+    date_label.configure(text=CS.data[0]['exam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=330)
+    date_label.configure(text=CS.data[0]['clear'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=366)
+    date_label.configure(text=CS.data[0]['resutlNeg'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=402)
+    date_label.configure(text=CS.data[0]['doneExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=195, y=438)
+    date_label.configure(text=CS.data[0]['totalExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+
+    date_label = Label(window, width= 60)
+    date_label.place(x=370, y=150)
+    date_label.configure(text=CS.data[1]['date'], font=('Arial', 20,'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=186)
+    date_label.configure(text=CS.data[1]['getCorona'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=222)
+    date_label.configure(text=CS.data[1]['death'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=258)
+    date_label.configure(text=CS.data[1]['care'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=294)
+    date_label.configure(text=CS.data[1]['exam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=330)
+    date_label.configure(text=CS.data[1]['clear'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=366)
+    date_label.configure(text=CS.data[1]['resutlNeg'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=402)
+    date_label.configure(text=CS.data[1]['doneExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    date_label = Label(window)
+    date_label.place(x=370, y=438)
+    date_label.configure(text=CS.data[1]['totalExam'], font=('Arial', 20, 'bold'),
+                                height=1, width=10,
+                                background='white', relief = 'groove')
+    text_label = Label(window)
+    text_label.place(x=150, y=475)
+    text_label.configure(text="※금일 데이터가 업데이트 안되었을 경우 전일 데이터를 불러옵니다.",
+                         background='LightSteelBlue1', font=('Arial', 10))
+
 
 def HomeState():
     global window
@@ -279,8 +279,8 @@ def HomeState():
     searchScreeningCarClinicButton()
     searchSafetyHospitalButton()
 
-    #CoronaStatus()
-    #CoronaGraph.makegrape(window)
+    CoronaStatus()
+    CoronaGraph.makegrape(window)
     window.mainloop()
 
 

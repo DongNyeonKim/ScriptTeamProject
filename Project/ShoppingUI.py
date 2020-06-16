@@ -68,13 +68,17 @@ def telegramButton():
     pil_image = Image.open('리소스/텔레그렘아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     telegram_Button.image = ImageTk.PhotoImage(pil_image)
-    telegram_Button = Button(image = telegram_Button.image, command=lambda: clickicon())
+    telegram_Button = Button(image = telegram_Button.image)
     telegram_Button.place(x=1000,y=10)
     telegram_text = Label(window)
     telegram_text.place(x=1010, y=110)
     telegram_text.configure(background='LightSteelBlue1')
     telegram_Button.bind("<Enter>", lambda _: telegram_text.configure(text="텔레그렘 봇"))
     telegram_Button.bind("<Leave>", lambda _: telegram_text.configure(text=""))
+
+def titlelabel():
+    title = Label(window,text ="방역물품 \n쇼핑", font=('서울서체', 25, 'bold'),bg = 'cornflowerblue', width = 12, height = 6)
+    title.place(x=100,y=150)
 
 def searchRadiobutton():
     global var
@@ -135,6 +139,8 @@ def ShoppingState():
     titleImage()
     telegramButton()
     searchRadiobutton()
+
+    titlelabel()
 
     window.mainloop()
 

@@ -1,6 +1,6 @@
 import HomeUI
-import GetCoronaMap
 
-GetCoronaMap.executeMaskMap()
+
+#GetCoronaMap.executeMaskMap()
 HomeUI.HomeState()
 

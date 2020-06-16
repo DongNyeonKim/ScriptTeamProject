@@ -36,3 +36,5 @@ top_mid3 = treeview.insert(top, 'end', text="5-3", values=["STX", 2], iid="5번-
 treeview.tag_bind("tag1", sequence="<<TreeviewSelect>>", callback=cc)
 
 window.mainloop()
+
+
