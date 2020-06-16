@@ -91,9 +91,9 @@ def excelsavebutton():
     excelsave_Button.image = ImageTk.PhotoImage(pil_image)
     excelsave_Button = Button(image = excelsave_Button.image, bg ='snow', command=lambda: CSL.excelsavefile(CSL.search))
     excelsave_Button.place(x=100,y=420)
-    # excel_text = Label(window)
-    # excel_text.place(x=1010, y=110)
-    # excel_text.configure(background='LightSteelBlue1')
+    excel_text = Label(window, text="전체검색항목\n엑셀 저장")
+    excel_text.place(x=85, y=530)
+    excel_text.configure(background='LightSteelBlue1', font=('서울서체', 15, 'bold'))
 
 def imagesavebutton():
     imagesave_Button =Button(window)
@@ -102,9 +102,9 @@ def imagesavebutton():
     imagesave_Button.image = ImageTk.PhotoImage(pil_image)
     imagesave_Button = Button(image = imagesave_Button.image, bg ='snow', command=lambda: CSL.imagesavefile(CSL.search))
     imagesave_Button.place(x=250,y=420)
-    # excel_text = Label(window)
-    # excel_text.place(x=1010, y=110)
-    # excel_text.configure(background='LightSteelBlue1')
+    excel_text = Label(window)
+    excel_text.place(x=1010, y=110)
+    excel_text.configure(background='LightSteelBlue1')
 
 def searchRadiobutton():
     global var
