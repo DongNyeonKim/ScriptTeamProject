@@ -1,6 +1,6 @@
-import HomeUI
-
+# import HomeUI
+import ShoppingUI
 
 #GetCoronaMap.executeMaskMap()
-HomeUI.HomeState()
+ShoppingUI.ShoppingState()
 

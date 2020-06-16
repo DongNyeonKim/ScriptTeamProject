@@ -77,8 +77,34 @@ def telegramButton():
     telegram_Button.bind("<Leave>", lambda _: telegram_text.configure(text=""))
 
 def titlelabel():
-    title = Label(window,text ="방역물품 \n쇼핑", font=('서울서체', 25, 'bold'),bg = 'cornflowerblue', width = 12, height = 6)
+    title = Label(window,text ="방역물품 \n쇼핑", font=('서울서체', 25, 'bold'),fg = "midnightblue", bg = 'cornflowerblue', width = 12, height = 6)
     title.place(x=100,y=150)
+
+def infolabel():
+    info = Label(window,text ="검색할 물품을 선택하시고 검색버튼을 누르시오.", font=('서울서체', 15, 'bold'),bg = "LightSteelBlue1")
+    info.place(x=580,y=400)
+
+def excelsavebutton():
+    excelsave_Button =Button(window)
+    pil_image = Image.open('리소스/엑셀아이콘.PNG')
+    pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
+    excelsave_Button.image = ImageTk.PhotoImage(pil_image)
+    excelsave_Button = Button(image = excelsave_Button.image, bg ='snow', command=lambda: CSL.excelsavefile(CSL.search))
+    excelsave_Button.place(x=100,y=420)
+    # excel_text = Label(window)
+    # excel_text.place(x=1010, y=110)
+    # excel_text.configure(background='LightSteelBlue1')
+
+def imagesavebutton():
+    imagesave_Button =Button(window)
+    pil_image = Image.open('리소스/사진.png')
+    pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
+    imagesave_Button.image = ImageTk.PhotoImage(pil_image)
+    imagesave_Button = Button(image = imagesave_Button.image, bg ='snow', command=lambda: CSL.imagesavefile(CSL.search))
+    imagesave_Button.place(x=250,y=420)
+    # excel_text = Label(window)
+    # excel_text.place(x=1010, y=110)
+    # excel_text.configure(background='LightSteelBlue1')
 
 def searchRadiobutton():
     global var
@@ -141,7 +167,9 @@ def ShoppingState():
     searchRadiobutton()
 
     titlelabel()
-
+    infolabel()
+    excelsavebutton()
+    imagesavebutton()
     window.mainloop()
 
 

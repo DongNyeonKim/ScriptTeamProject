@@ -282,6 +282,3 @@ def HomeState():
     CoronaStatus()
     CoronaGraph.makegrape(window)
     window.mainloop()
-
-
-HomeState()

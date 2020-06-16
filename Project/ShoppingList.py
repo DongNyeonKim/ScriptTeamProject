@@ -17,7 +17,7 @@ def giveImageURL(e):
         im = Image.open(BytesIO(raw_data))
         im = im.resize((250, 250), Image.ANTIALIAS)
         newImg2 = ImageTk.PhotoImage(im)
-        imageLabel.configure(image=newImg2)
+        imageLabel.configure(image=newImg2, bg = 'cornflowerblue')
 
 
 def OnDoubleClick(e):
