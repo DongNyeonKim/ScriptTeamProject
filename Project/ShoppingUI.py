@@ -101,10 +101,10 @@ def imagesavebutton():
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     imagesave_Button.image = ImageTk.PhotoImage(pil_image)
     imagesave_Button = Button(image = imagesave_Button.image, bg ='snow', command=lambda: CSL.imagesavefile(CSL.search))
-    imagesave_Button.place(x=250,y=420)
-    excel_text = Label(window)
-    excel_text.place(x=1010, y=110)
-    excel_text.configure(background='LightSteelBlue1')
+    imagesave_Button.place(x=260,y=420)
+    image_text = Label(window, text="전체검색항목\n이미지 저장")
+    image_text.place(x=240, y=530)
+    image_text.configure(background='LightSteelBlue1', font=('서울서체', 15, 'bold'))
 
 def searchRadiobutton():
     global var
