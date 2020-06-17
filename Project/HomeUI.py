@@ -9,7 +9,7 @@ import ShoppingUI
 import SearchFunction
 import CoronaStateXMLParsing as CS
 import CoronaGraph
-
+import spam
 
 def MoveMaskState():
     window.destroy()
@@ -255,6 +255,33 @@ def CoronaStatus():
     date_label.configure(text=CS.data[1]['totalExam'], font=('Arial', 20, 'bold'),
                                 height=1, width=10,
                                 background='white', relief = 'groove')
+    #차이
+    minus_label = Label(window)
+    minus_label.place(x=345, y=193)
+    minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['getCorona']),eval(CS.data[1]['getCorona']))),
+                          font=('Arial', 11, 'bold'),height=1, width=5,
+                         background='white', relief='groove')
+    minus_label = Label(window)
+    minus_label.place(x=345, y=227)
+    minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['death']),eval(CS.data[1]['death']))),
+                          font=('Arial', 11, 'bold'),height=1, width=5,
+                         background='white', relief='groove')
+    minus_label = Label(window)
+    minus_label.place(x=345, y=265)
+    minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['care']),eval(CS.data[1]['care']))),
+                          font=('Arial', 11, 'bold'),height=1, width=5,
+                         background='white', relief='groove')
+    minus_label = Label(window)
+    minus_label.place(x=345, y=301)
+    minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['exam']),eval(CS.data[1]['exam']))),
+                          font=('Arial', 11, 'bold'),height=1, width=5,
+                         background='white', relief='groove')
+    minus_label = Label(window)
+    minus_label.place(x=345, y=337)
+    minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['clear']),eval(CS.data[1]['clear']))),
+                          font=('Arial', 11, 'bold'),height=1, width=5,
+                         background='white', relief='groove')
+
     text_label = Label(window)
     text_label.place(x=150, y=475)
     text_label.configure(text="※금일 데이터가 업데이트 안되었을 경우 전일 데이터를 불러옵니다.",
