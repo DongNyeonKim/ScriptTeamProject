@@ -49,7 +49,7 @@ def excelsavefile(search):
             os.makedirs("쇼핑리스트저장파일")
     except:
         pass
-    f = open(f'쇼핑리스트저장/{search}쇼핑리스트.csv','w', newline='')
+    f = open(f'쇼핑리스트저장파일/{search}쇼핑리스트.csv','w', newline='')
     csvWriter = csv.writer(f)
     for i in SearchList:
         csvWriter.writerow(i)
