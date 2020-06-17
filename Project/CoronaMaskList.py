@@ -115,24 +115,24 @@ def makeMaskList(window):
     btnSearch.place(x=440, y=180,height=30)
     btnSearch.configure(background='white',font = ('서울서체',10,'bold'))
     # 안내 문구
-    lb2_plenty = Label(window, text="plenty(Green) - 100개 이상")
+    lb2_plenty = Label(window, text="plenty(Green): 100개 이상")
     lb2_plenty.place(x=590, y=115)
     lb2_plenty.configure(foreground = 'green', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
-    lb2_some = Label(window, text="some(Yellow) - 30~99개")
+    lb2_some = Label(window, text="some(Yellow): 30~99개")
     lb2_some.place(x=590, y=135)
     lb2_some.configure(foreground = 'yellow', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
-    lb2_few = Label(window, text="few(Red) - 2~29개")
+    lb2_few = Label(window, text="few(Red): 2~29개")
     lb2_few.place(x=590, y=155)
     lb2_few.configure(foreground = 'red', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
 
-    lb2_empty = Label(window, text="empty(White) - 1개 이하")
+    lb2_empty = Label(window, text="empty(White): 1개 이하")
     lb2_empty.place(x=590, y=175)
     lb2_empty.configure(foreground = 'white', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 
-    lb2_black = Label(window, text="black(Black) - 판매중지")
+    lb2_black = Label(window, text="black(Black): 판매중지")
     lb2_black.place(x=590, y=195)
     lb2_black.configure(foreground = 'black', background='LightSteelBlue1', font=('서울서체', 8, 'bold'))
 

@@ -198,4 +198,4 @@ def makeSearchMapData():
     map_hs3.save("./mask_store4.html")
     webbrowser.open_new('mask_store4.html')
 
-executeMaskMap()
+#executeMaskMap()
