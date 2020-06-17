@@ -112,7 +112,7 @@ def emailsendingbutton():
     pil_image = Image.open('리소스/이메일아이콘.png')
     pil_image = pil_image.resize((60, 60), Image.ANTIALIAS)
     emailsending_Button.image = ImageTk.PhotoImage(pil_image)
-    emailsending_Button = Button(image = emailsending_Button.image, bg ='snow', command=lambda: ES.sendingEmail())
+    emailsending_Button = Button(image = emailsending_Button.image, bg ='snow', command=lambda: ES.writeyourEmail())
     emailsending_Button.place(x=1000,y=520)
     # image_text = Label(window, text="전체검색항목\n이미지 저장")
     # image_text.place(x=240, y=530)
