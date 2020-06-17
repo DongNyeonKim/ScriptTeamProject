@@ -19,6 +19,7 @@ def handle(msg):
         bot.sendMessage(chat_id, "명령을 기다리고 있어요!")
     elif ("금일"in msg['text'] or "오늘" in msg['text']) and ("감염"in msg['text'] or "확진자" in msg['text']):
         giveTodayCoronaState()
+        
     elif ("전일" in msg['text'] or "어제" in msg['text']) and ("감염"in msg['text'] or "확진자" in msg['text']):
         giveYesterdayCoronaState()
     else:
