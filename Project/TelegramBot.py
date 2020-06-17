@@ -85,20 +85,22 @@ def getNearMaskStoreInfo(address):
 def giveMaskInfo(text):
     command, address = text.split(":")
     MaskList = getNearMaskStoreInfo(address)
-    print(MaskList[0][0])
-    print(MaskList[1][0])
+    print(MaskList)
+
     text = f'''
 {address}의 공적마스크 판매처 및 제고량 안내입니다.
             '''
     bot.sendMessage(chat_id, text)
 
     for i in range(len(MaskList)):
+        mapAddress = MaskList[i][0]["addr"].replace(" ","+")
         text = f'''
 판매처 이름 : {MaskList[i][0]["name"]}\n
 주소 : {MaskList[i][0]["addr"]}\n
 제고량 : {MaskList[i][0]["remain_stat"]}\n
 데이터 생성일자 : {MaskList[i][0]["created_at"]}\n
 입고시간 : {MaskList[i][0]["stock_at"]}\n
+지도 : https://www.google.co.kr/maps/place/{mapAddress}\n
                     '''
         bot.sendMessage(chat_id, text)
 
