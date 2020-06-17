@@ -260,27 +260,27 @@ def CoronaStatus():
     minus_label.place(x=345, y=193)
     minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['getCorona']),eval(CS.data[1]['getCorona']))),
                           font=('Arial', 11, 'bold'),height=1, width=5,
-                         background='white', relief='groove')
+                         background='lightcoral', relief='groove')
     minus_label = Label(window)
     minus_label.place(x=345, y=227)
     minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['death']),eval(CS.data[1]['death']))),
                           font=('Arial', 11, 'bold'),height=1, width=5,
-                         background='white', relief='groove')
+                         background='bisque', relief='groove')
     minus_label = Label(window)
     minus_label.place(x=345, y=265)
     minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['care']),eval(CS.data[1]['care']))),
                           font=('Arial', 11, 'bold'),height=1, width=5,
-                         background='white', relief='groove')
+                         background='honeydew', relief='groove')
     minus_label = Label(window)
     minus_label.place(x=345, y=301)
     minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['exam']),eval(CS.data[1]['exam']))),
                           font=('Arial', 11, 'bold'),height=1, width=5,
-                         background='white', relief='groove')
+                         background='aliceblue', relief='groove')
     minus_label = Label(window)
     minus_label.place(x=345, y=337)
     minus_label.configure(text="%+d"%(spam.minus(eval(CS.data[0]['clear']),eval(CS.data[1]['clear']))),
                           font=('Arial', 11, 'bold'),height=1, width=5,
-                         background='white', relief='groove')
+                         background='gainsboro', relief='groove')
 
     text_label = Label(window)
     text_label.place(x=150, y=475)
