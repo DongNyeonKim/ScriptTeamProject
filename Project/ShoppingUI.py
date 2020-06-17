@@ -8,6 +8,7 @@ import ShoppingList
 import CrowlingShoppingList as CSL
 import urllib.request
 from io import BytesIO
+import EmailSending as ES
 
 def MoveHomeState():
     window.destroy()
@@ -106,6 +107,17 @@ def imagesavebutton():
     image_text.place(x=240, y=530)
     image_text.configure(background='LightSteelBlue1', font=('서울서체', 15, 'bold'))
 
+def emailsendingbutton():
+    emailsending_Button =Button(window)
+    pil_image = Image.open('리소스/이메일아이콘.png')
+    pil_image = pil_image.resize((60, 60), Image.ANTIALIAS)
+    emailsending_Button.image = ImageTk.PhotoImage(pil_image)
+    emailsending_Button = Button(image = emailsending_Button.image, bg ='snow', command=lambda: ES.sendingEmail())
+    emailsending_Button.place(x=1000,y=520)
+    # image_text = Label(window, text="전체검색항목\n이미지 저장")
+    # image_text.place(x=240, y=530)
+    # image_text.configure(background='LightSteelBlue1', font=('서울서체', 15, 'bold'))
+
 def searchRadiobutton():
     global var
     var = IntVar()
@@ -170,6 +182,8 @@ def ShoppingState():
     infolabel()
     excelsavebutton()
     imagesavebutton()
+    emailsendingbutton()
+
     window.mainloop()
 
 

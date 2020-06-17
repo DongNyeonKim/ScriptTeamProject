@@ -9,9 +9,13 @@ from PIL import Image, ImageTk
 import urllib.request
 
 def giveImageURL(e):
-    imageURL = treeview.item(treeview.selection())['values'][4]
-    print(imageURL)
-    with urllib.request.urlopen(imageURL) as u:
+    global proudct_imageURL, product_URL, product_price, product_title
+    proudct_imageURL = treeview.item(treeview.selection())['values'][4]
+    product_URL=treeview.item(treeview.selection())['values'][3]
+    product_price=treeview.item(treeview.selection())['values'][2]
+    product_title=treeview.item(treeview.selection())['values'][1]
+    print(proudct_imageURL)
+    with urllib.request.urlopen(proudct_imageURL) as u:
         global newImg2
         raw_data = u.read()
         im = Image.open(BytesIO(raw_data))
