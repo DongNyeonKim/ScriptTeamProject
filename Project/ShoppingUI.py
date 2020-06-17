@@ -9,6 +9,7 @@ import CrowlingShoppingList as CSL
 import urllib.request
 from io import BytesIO
 import EmailSending as ES
+import TelegramStart as TS
 
 def MoveHomeState():
     window.destroy()
@@ -69,7 +70,7 @@ def telegramButton():
     pil_image = Image.open('리소스/텔레그렘아이콘.PNG')
     pil_image = pil_image.resize((90, 90), Image.ANTIALIAS)
     telegram_Button.image = ImageTk.PhotoImage(pil_image)
-    telegram_Button = Button(image = telegram_Button.image)
+    telegram_Button = Button(image = telegram_Button.image,command=lambda: TS.sendStartMessage())
     telegram_Button.place(x=1000,y=10)
     telegram_text = Label(window)
     telegram_text.place(x=1010, y=110)
